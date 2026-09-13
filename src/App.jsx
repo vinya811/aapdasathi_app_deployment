@@ -24,6 +24,13 @@ import "leaflet/dist/leaflet.css";
 import "./App.css";
 
 /* =========================================================
+   RELIEF APP URL
+   ========================================================= */
+
+const RELIEF_URL =
+  import.meta.env.VITE_RELIEF_URL || "http://localhost:5174";
+
+/* =========================================================
    LEAFLET ICON FIX
    ========================================================= */
 
@@ -358,8 +365,6 @@ function Home() {
           </span>
         </div>
 
-        {/* SAFETY CARD */}
-
         <section className="safety-card">
           <div className="safety-top">
             <div className="safety-icon">🛡️</div>
@@ -389,8 +394,6 @@ function Home() {
             <strong>Low</strong>
           </div>
         </section>
-
-        {/* ACTIVE ALERT */}
 
         <section className="section-block">
           <div className="section-title-row">
@@ -435,8 +438,6 @@ function Home() {
           </div>
         </section>
 
-        {/* EMERGENCY */}
-
         <section className="emergency-banner">
           <div>
             <span className="emergency-label">
@@ -458,8 +459,6 @@ function Home() {
             SOS
           </Link>
         </section>
-
-        {/* QUICK ACTIONS */}
 
         <section className="section-block">
           <div className="section-title-row">
@@ -536,8 +535,6 @@ function Home() {
 
           </div>
         </section>
-
-        {/* OPERATIONS */}
 
         <section className="section-block">
           <div className="section-title-row">
@@ -617,8 +614,6 @@ function Home() {
           </div>
         </section>
 
-        {/* AI RISK */}
-
         <section className="ai-card">
           <div className="ai-icon">
             ✨
@@ -662,8 +657,6 @@ function Home() {
 
           </div>
         </section>
-
-        {/* NEAREST SHELTER */}
 
         <section className="section-block">
           <div className="section-title-row">
@@ -1509,7 +1502,6 @@ function Relief() {
   return (
     <div className="app-page module-page relief-integration-page">
 
-      {/* Header */}
       <header className="module-header">
         <Link to="/" className="back-button">
           ←
@@ -1528,7 +1520,6 @@ function Relief() {
         </div>
       </header>
 
-      {/* Connected Relief Application */}
       <section className="relief-connected-container">
 
         <div className="relief-connected-bar">
@@ -1546,7 +1537,7 @@ function Relief() {
           </div>
 
           <a
-            href="http://localhost:5174"
+            href={RELIEF_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="open-relief-button"
@@ -1556,10 +1547,9 @@ function Relief() {
 
         </div>
 
-        {/* Relief application */}
         <div className="relief-app-frame">
           <iframe
-            src="http://localhost:5174"
+            src={RELIEF_URL}
             title="Relief Intelligence"
             className="relief-iframe"
           />
